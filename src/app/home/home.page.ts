@@ -9,18 +9,23 @@ import { CoingeckoConsumerService } from '../services/coingecko-consumer.service
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit{
-
+  selectedFiat = 'USD';
+  fiats = ['USD', 'EUR', 'GBP', 'JPY'];
   bitcoin$: CryptoCoin;
   constructor(private coinProvider: CoingeckoConsumerService) {}
 
   async ngOnInit(){
-    let d = await this.changeFiat();
-    this.bitcoin$ = d[0];
+    this.changeFiat();
     console.log('bit', this.bitcoin$);
   }
 
-  changeFiat(){
-    return this.coinProvider.getCoinInfo('usd', 'bitcoin').toPromise();
+  callService(){
+    return this.coinProvider.getCoinInfo(this.selectedFiat, 'bitcoin').toPromise();
+  }
+
+  async changeFiat(){
+    let d = await this.callService();
+    this.bitcoin$ = d[0];
   }
 
 
