@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>
-      Bitcoin Tracker
+      Ethereum Tracker
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,13 +10,13 @@
   <ion-grid *ngIf="bitcoin$ ; else loading">
     <ion-row justify-content-center>
       <ion-col>
-        <ion-img style="height: 160px;" src='{{bitcoin$.image}}'></ion-img>
+        <ion-img style="height: 160px;" src='https://cryptonaute.fr/wp-content/uploads/2020/06/ethereum-logo-300x300.png'></ion-img>
       </ion-col>
     </ion-row>
     <ion-row justify-content-center>
       <ion-col>
         <div class="ion-text-center">
-          <h1>BTC : {{bitcoin$.current_price}} {{selectedFiat}} </h1>
+          <h1>Ethereum : {{bitcoin$.current_price}} {{selectedFiat}} </h1>
           <div *ngIf="bitcoin$.price_change_percentage_24h>0">
             <h3>The price is Up by {{bitcoin$.price_change_percentage_24h}}% in the last 24 Hours.</h3>
           </div>
